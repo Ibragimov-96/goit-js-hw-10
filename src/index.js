@@ -30,7 +30,7 @@ function onSearch(e) {
         const markup = createMarkupListCountry(response);
         addMarkup('', markup);
       } else {
-        Notiflix.Report.warning('Oops, there is no country with that name');
+        Notiflix.Notify.info('Too many matches found. Please enter a more specific name.');
       }
     })
     .catch(error => {
@@ -47,11 +47,11 @@ function addMarkup(cm = '', clm = '') {
 function createMarkupCountry(data = []) {
   return data
     .map(({ flags, name, capital, population, languages }) => {
-      return `<div><img src="${flags.svg}" style="width:50px">
-    <h1>name ${name.official}</h1>
-     <p>${capital}</p>
-     <p>${population}</p>
-      <p>${Object.values(languages)[0]}</p></div>`;
+      return `<div> <div class="country"><img src="${flags.svg}" style="width:50px">
+    <h1>${name.official}</h1></div>
+     <p><b>Capital:</b> ${capital}</p>
+     <p><b>Population:</b> ${population}</p>
+      <p><b>Languages:</b> ${Object.values(languages)[0]}</p></div>`;
     })
     .join('');
 }
@@ -59,7 +59,7 @@ function createMarkupCountry(data = []) {
 function createMarkupListCountry(data = []) {
   return data
     .map(({ flags, name }) => {
-      return `<div><img src="${flags.svg}" style="width:50px">
+      return `<div class="container-js"><img src="${flags.svg}" style="width:5vw">
       <h1>${name.official}</h1></div>`;
     })
     .join('');

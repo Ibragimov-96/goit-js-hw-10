@@ -19,25 +19,16 @@ body {
   margin-bottom: 16px;
 }
 
-.country-info{
+.country-list{padding-left: 0;}
+.container-js{
   display: flex;
-
- 
- ;
+  gap: 20px;
 }
-
-.country-info img{
-  width:25px;
-  height: 20px;
-}
-
-.country-info h1{
-  color: rgb(0, 82, 61);
-  font-family: sans-serif;
+.container-js h1{
+  font-weight: 400;
   font-size: 20px;
 }
-
-.country-info p{
-  font-size: 15px;
+.country{
+  display: flex;
+  gap: 20px;
 }
-
