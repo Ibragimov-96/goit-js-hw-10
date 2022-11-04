@@ -18,3 +18,26 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
+
+.country-info{
+  display: flex;
+
+ 
+ ;
+}
+
+.country-info img{
+  width:25px;
+  height: 20px;
+}
+
+.country-info h1{
+  color: rgb(0, 82, 61);
+  font-family: sans-serif;
+  font-size: 20px;
+}
+
+.country-info p{
+  font-size: 15px;
+}
+
