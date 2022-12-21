@@ -17,34 +17,42 @@ refs.countriesList.addEventListener(
 function onSearch(e) {
   const search = e.target.value.trim();
 
-  if (!search) return;
+  if (search === "") {
+    refs.cardContainer = "";
+    refs.country ="";
+   };
   addMarkup();
   fetchCountries(search)
     .then(response => {
+    
       const length = response.length;
-
-      if (length === 1) {
+     
+if (length === 1) {
         const markup = createMarkupCountry(response);
         addMarkup(markup);
       } else if (length > 1 && length <= 10) {
         const markup = createMarkupListCountry(response);
         addMarkup('', markup);
       } else {
+        e.target.removeEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
         Notiflix.Notify.info('Too many matches found. Please enter a more specific name.');
       }
     })
     .catch(error => {
+    
       Notiflix.Notify.failure('Oops, there is no country with that name');
       return error;
     });
 }
 
 function addMarkup(cm = '', clm = '') {
+ 
   refs.cardContainer.innerHTML = cm;
   refs.country.innerHTML = clm;
 }
 
 function createMarkupCountry(data = []) {
+
   return data
     .map(({ flags, name, capital, population, languages }) => {
       return `<div> <div class="country"><img src="${flags.svg}" style="width:50px">
