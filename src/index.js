@@ -17,9 +17,9 @@ refs.countriesList.addEventListener(
 function onSearch(e) {
   const search = e.target.value.trim();
 
-  if (search === "") {
-    refs.cardContainer = "";
-    refs.country ="";
+  if (search === " ") {
+    refs.cardContainer = " ";
+    refs.country =" ";
    };
   addMarkup();
   fetchCountries(search)
